@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtual on 我的个人知识库</title>
+    <link>http://localhost:45862/tags/virtual/</link>
+    <description>Recent content in Virtual on 我的个人知识库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Nov 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:45862/tags/virtual/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>riscv 虚拟化</title>
+      <link>http://localhost:45862/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
+      <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:45862/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
+      <description>硬件原理（priv-isa 13） 特权模式 HS-mode 和 S-mode 是一个东西，只是支持 hypervisor 改了名字，HS-mode 进入 VS-mode 通过 hstatus.spv = 1&#xA;CSR 访问 csr_hxxx 是 hs-mode 用来控制 vx-mode 的；csr_vsxx 是 vx-mode 访问 csr_sxxx 时，实际访问的寄存器&#xA;地址翻译 vstap 在 vx-mode 模式等价于 stap；hgatp 的 entry 是比 stap 的 entry 多两位的&#xA;中断类型 G-stage 翻译失败会触发 guest-page fault&#xA;kernel 内存结构 vcpu 运行流程 qemu 启动虚拟机简易代码 // tiny_qemu.c #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;linux/kvm.</description>
+    </item>
+  </channel>
+</rss>

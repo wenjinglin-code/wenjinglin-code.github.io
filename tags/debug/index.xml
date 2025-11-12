@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debug on 我的个人知识库</title>
+    <link>http://localhost:45862/tags/debug/</link>
+    <description>Recent content in Debug on 我的个人知识库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Nov 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:45862/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>riscv debug mode</title>
+      <link>http://localhost:45862/2025/11/debug-mode/</link>
+      <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:45862/2025/11/debug-mode/</guid>
+      <description>概况 debug mode 是特殊的处理器模式，仅在 hart 由于外部调试而暂停时使用。&#xA;调试器想让 hart 进入 debug mode，步骤如下：&#xA;配置 dmcontrol.dmactive = 0，复位 debug mouble(DM) 配置 dmcontrol.dmactive = 1，使能 debug mouble(DM) 配置好要选择的 hart (dmcontrol.hasel) 配置 dmcontrol.haltreq = 1，让选择的 harts 进入 debug mode debug mode registers 只能在 debug mode 模式下访问&#xA;dcsr(Debug Control and Status) Field Description Access Reset debuger debug spec 版本 R Preset ebreakx 0：ebreak 指令触发 breakpoint 异常； 1：ebreak 指令进入 debug mode； | WARL | 0 | | cause | 进入 debug mode 的原因</description>
+    </item>
+  </channel>
+</rss>

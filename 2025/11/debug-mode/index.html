@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45862&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>riscv debug mode | 我的个人知识库</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+  <a href="/" class="site-title">我的个人知识库</a>
+  <nav class="nav">
+    <ul>
+      
+      <li>
+        <a href="/" >
+          首页
+        </a>
+      </li>
+      
+      <li>
+        <a href="/search/" >
+          搜索
+        </a>
+      </li>
+      
+      <li>
+        <a href="/posts/" >
+          归档
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/" >
+          分类
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/" >
+          标签
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about/" >
+          关于
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="main">
+      
+<aside class="sidebar">
+  
+    <h3>目录</h3>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概况">概况</a></li>
+    <li><a href="#debug-mode-registers">debug mode registers</a>
+      <ul>
+        <li><a href="#dcsrdebug-control-and-status">dcsr(Debug Control and Status)</a></li>
+        <li><a href="#dpcdebug-pc">dpc(Debug PC)</a></li>
+      </ul>
+    </li>
+    <li><a href="#triggers-module硬件断点的实现可以实现-memory-访问的监控">Triggers Module(硬件断点的实现，可以实现 memory 访问的监控）</a></li>
+  </ul>
+</nav>
+  
+</aside>
+<div class="content">
+  <h1>riscv debug mode</h1>
+  <p><strong>发布日期：</strong> 2025-11-12</p>
+  
+  <h1 id="概况">概况</h1>
+<p><img alt="Untitled" src="/2025/11/riscv-%E5%90%AF%E5%8A%A8/debug%20mode/Untitled.png"></p>
+<p><code>debug mode</code> 是特殊的处理器模式，仅在 <code>hart</code> 由于外部调试而暂停时使用。</p>
+<p>调试器想让 hart 进入 debug mode，步骤如下：</p>
+<ol>
+<li>配置 dmcontrol.dmactive = 0，复位 debug mouble(DM)</li>
+<li>配置 dmcontrol.dmactive = 1，使能 debug mouble(DM)</li>
+<li>配置好要选择的 hart (dmcontrol.hasel)</li>
+<li>配置 dmcontrol.haltreq = 1，让选择的 harts 进入 debug mode</li>
+</ol>
+<h1 id="debug-mode-registers">debug mode registers</h1>
+<p><code>只能在 debug mode 模式下访问</code></p>
+<h2 id="dcsrdebug-control-and-status">dcsr(Debug Control and Status)</h2>
+<p><img alt="Untitled" src="/2025/11/riscv-%E5%90%AF%E5%8A%A8/debug%20mode/Untitled%201.png"></p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Access</strong></th>
+<th><strong>Reset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>debuger</strong></td>
+<td>debug spec 版本</td>
+<td>R</td>
+<td>Preset</td>
+</tr>
+<tr>
+<td><strong>ebreakx</strong></td>
+<td>0：ebreak 指令触发 <code>breakpoint 异常</code>；</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>1：ebreak 指令进入 <code>debug mode</code>； | WARL | 0 |
+| <strong>cause</strong> | 进入 debug mode 的原因</p>
+<p>1 (ebreak)：ebreak 指令执行，需要配置；</p>
+<p>2 (trigger)：一个 Trigger Module trigger（hw_breakpoint） 被触发，而且配置为 <code>action=1</code>；</p>
+<p>3 (haltreq)：调试器请求进入 debug mode（dmcontrol.haltreq = 1），不用配置</p>
+<p>4 (step)：因为 dcsr.step = 1，hart 单步执行触发；</p>
+<p>… | R | 0 |
+| <strong>step</strong> | 配置 hart 单步执行，方法如下:</p>
+<ol>
+<li>hart 处于 debug mode；</li>
+<li>配置 dcsr.step = 1；</li>
+<li>hart 继续运行，退出 debug mode</li>
+<li>hart 执行一条指令，停止运行，进入 debug mode，dcsr.cause = 4； |  |  |</li>
+</ol>
+<h2 id="dpcdebug-pc">dpc(Debug PC)</h2>
+<p>用于记录进入 debug mode 时的地址，不同的原因，记录的地址不一样：</p>
+<table>
+<thead>
+<tr>
+<th>cause</th>
+<th>virtual addres in dpc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ebreak</td>
+<td>ebreak 指令对应的地址（当前指令的地址）</td>
+</tr>
+<tr>
+<td>trigger module</td>
+<td>下一条指令的地址</td>
+</tr>
+<tr>
+<td>halt request</td>
+<td>下一条指令的地址</td>
+</tr>
+<tr>
+<td>single step</td>
+<td>下一条指令的地址</td>
+</tr>
+</tbody>
+</table>
+<h1 id="triggers-module硬件断点的实现可以实现-memory-访问的监控">Triggers Module(硬件断点的实现，可以实现 memory 访问的监控）</h1>
+<p>独立于 Debug Module，理论上可以直接 csr 访问配置，具体需要看 spec 确定</p>
+<p>可以配置成触发<code>breakpoint 异常</code>，或者 进入 <code>debug mode</code></p>
+
+  
+  
+  
+  <div>
+    <strong>标签：</strong>
+    
+      <span style="background-color: #e0e0e0; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">riscv</span>
+    
+      <span style="background-color: #e0e0e0; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">debug</span>
+    
+      <span style="background-color: #e0e0e0; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">linux</span>
+    
+      <span style="background-color: #e0e0e0; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem;">c3000</span>
+    
+  </div>
+  
+</div>
+
+    </main>
+    <footer class="footer">
+  <p>&copy; 2025 我的个人知识库. 保留所有权利。</p>
+  <p>使用 <a href="https://gohugo.io/" target="_blank">Hugo</a> 和 <a href="https://github.com/matcornic/hugo-theme-learn" target="_blank">Learn</a> 主题构建。</p>
+</footer>
+
+  </div>
+</body>
+</html>
