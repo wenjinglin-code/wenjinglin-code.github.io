@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>首页 on 我的个人知识库</title>
+    <link>http://localhost:45956/</link>
+    <description>Recent content in 首页 on 我的个人知识库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Nov 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:45956/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:45956/about/</link>
+      <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:45956/about/</guid>
+      <description>关于这个知识库 这是一个个人知识库网站，用于整理和分享我在技术学习和项目开发中的经验和笔记。&#xA;联系方式 邮箱: your-email@example.com GitHub: your-github-username </description>
+    </item>
+    <item>
+      <title>riscv 异常,中断</title>
+      <link>http://localhost:45956/2025/11/riscv-interrupt/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:45956/2025/11/riscv-interrupt/</guid>
+      <description>中断硬件原理 如果没有使用 medeleg / medeleg 对中断委托的话，触发中断，会陷入到 m-mode 处理；如果配置了，就在 s-mode 处理；&#xA;中断类型 在不同模式下，触发相同的中断，中断编号不一样，如：&#xA;在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;&#xA;在 u-mode 模式中执行 ecall，就触发 Environment cal from U-mode ，syscall 就是基于这个；&#xA;m-mode&#xA;s-mode 只包含 s，u 的中断&#xA;异常的优先级 中断模式 riscv 有两种中断模式，通过 MODE 配置，不同的中断模式，中断向量不一样，如下：&#xA;软件触发中断 ecall (syscall 基于这个) 在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;</description>
+    </item>
+    <item>
+      <title>Hugo 知识库搭建指南</title>
+      <link>http://localhost:45956/2023/11/hugo-setup-guide/</link>
+      <pubDate>Sat, 11 Nov 2023 00:00:00 +0800</pubDate>
+      <guid>http://localhost:45956/2023/11/hugo-setup-guide/</guid>
+      <description>Hugo 知识库搭建指南 Hugo 是一个快速、现代的静态网站生成器，非常适合搭建个人知识库。&#xA;为什么选择 Hugo 速度快 - 生成网站的速度极快 易于部署 - 可以轻松部署到 GitHub Pages 等平台 丰富的主题 - 有大量的主题可供选择 Markdown 支持 - 完美支持 Markdown 格式 安装 Hugo Windows choco install hugo -confirm macOS brew install hugo Linux sudo apt-get install hugo 创建新站点 hugo new site my-knowledge-base cd my-knowledge-base 添加主题 git init git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/hugo-theme-learn 创建内容 cp xxx.md content/posts/ 更新内容 hugo --cleanDestinationDir 启动服务 hugo server -D # hugo server --disableFastRender 部署到 GitHub Pages 在 GitHub 上创建新仓库 构建网站： hugo 将 public 目录推送到 GitHub Pages 最佳实践 使用清晰的目录结构 为每篇文章添加合适的标签和分类 定期备份内容 使用版本控制管理内容 </description>
+    </item>
+    <item>
+      <title>搜索</title>
+      <link>http://localhost:45956/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:45956/search/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

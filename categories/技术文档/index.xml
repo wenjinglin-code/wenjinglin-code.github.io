@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术文档 on 我的个人知识库</title>
+    <link>http://localhost:44806/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/</link>
+    <description>Recent content in 技术文档 on 我的个人知识库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:44806/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 知识库搭建指南</title>
+      <link>http://localhost:44806/2025/11/hugo-setup-guide/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:44806/2025/11/hugo-setup-guide/</guid>
+      <description>Hugo 知识库搭建指南 Hugo 是一个快速、现代的静态网站生成器，非常适合搭建个人知识库。&#xA;为什么选择 Hugo 速度快 - 生成网站的速度极快 易于部署 - 可以轻松部署到 GitHub Pages 等平台 丰富的主题 - 有大量的主题可供选择 Markdown 支持 - 完美支持 Markdown 格式 安装 Hugo Windows choco install hugo -confirm macOS brew install hugo Linux sudo apt-get install hugo 创建新站点 hugo new site my-knowledge-base cd my-knowledge-base 添加主题 git init git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/hugo-theme-learn 创建内容 cp xxx.md content/posts/ 更新内容 hugo --cleanDestinationDir 启动服务 hugo server -D # hugo server --disableFastRender 部署到 GitHub Pages 在 GitHub 上创建新仓库 构建网站： hugo 将 public 目录推送到 GitHub Pages 最佳实践 使用清晰的目录结构 为每篇文章添加合适的标签和分类 定期备份内容 使用版本控制管理内容 </description>
+    </item>
+  </channel>
+</rss>

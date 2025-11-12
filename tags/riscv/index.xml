@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Riscv on 我的个人知识库</title>
+    <link>http://localhost:44806/tags/riscv/</link>
+    <description>Recent content in Riscv on 我的个人知识库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:44806/tags/riscv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>riscv 异常,中断</title>
+      <link>http://localhost:44806/2025/11/riscv-interrupt/</link>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0800</pubDate>
+      <guid>http://localhost:44806/2025/11/riscv-interrupt/</guid>
+      <description>中断硬件原理 如果没有使用 medeleg / medeleg 对中断委托的话，触发中断，会陷入到 m-mode 处理；如果配置了，就在 s-mode 处理；&#xA;中断类型 在不同模式下，触发相同的中断，中断编号不一样，如：&#xA;在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;&#xA;在 u-mode 模式中执行 ecall，就触发 Environment cal from U-mode ，syscall 就是基于这个；&#xA;m-mode&#xA;s-mode 只包含 s，u 的中断&#xA;异常的优先级 中断模式 riscv 有两种中断模式，通过 MODE 配置，不同的中断模式，中断向量不一样，如下：&#xA;软件触发中断 ecall (syscall 基于这个) 在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;</description>
+    </item>
+  </channel>
+</rss>

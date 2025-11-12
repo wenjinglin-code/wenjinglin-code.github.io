@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.123.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45956&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>我的个人知识库</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+  <a href="/" class="site-title">我的个人知识库</a>
+  <nav class="nav">
+    <ul>
+      
+      <li>
+        <a href="/" >
+          首页
+        </a>
+      </li>
+      
+      <li>
+        <a href="/search/" >
+          搜索
+        </a>
+      </li>
+      
+      <li>
+        <a href="/posts/" >
+          归档
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/" >
+          分类
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/" >
+          标签
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about/" >
+          关于
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="main">
+      
+<div class="content">
+  <h1>首页</h1>
+  <h1 id="欢迎来到我的个人知识库">欢迎来到我的个人知识库</h1>
+<p>这里是我整理和分享知识的地方。您可以使用以下导航来查找感兴趣的内容：</p>
+<h2 id="最新内容">最新内容</h2>
+<p>这里会显示最新的知识库文章。</p>
+
+  
+  <h2>站点导航</h2>
+  <ul>
+    <li><a href="/search/">搜索</a> - 搜索所有内容</li>
+    <li><a href="/posts/">归档</a> - 按时间线查看所有文章</li>
+    <li><a href="/categories/">分类</a> - 按分类查看文章</li>
+    <li><a href="/tags/">标签</a> - 按标签分类查看文章</li>
+    <li><a href="/about/">关于</a> - 了解这个知识库</li>
+  </ul>
+  
+  <h2>最新文章</h2>
+  
+    <h3><a href="/2025/11/riscv-interrupt/">riscv 异常,中断</a></h3>
+    <p>中断硬件原理 如果没有使用 medeleg / medeleg 对中断委托的话，触发中断，会陷入到 m-mode 处理；如果配置了，就在 s-mode 处理；
+中断类型 在不同模式下，触发相同的中断，中断编号不一样，如：
+在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;
+在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;
+在 u-mode 模式中执行 ecall，就触发 Environment cal from U-mode ，syscall 就是基于这个；
+m-mode
+s-mode 只包含 s，u 的中断
+异常的优先级 中断模式 riscv 有两种中断模式，通过 MODE 配置，不同的中断模式，中断向量不一样，如下：
+软件触发中断 ecall (syscall 基于这个) 在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;
+在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;</p>
+  
+    <h3><a href="/2023/11/hugo-setup-guide/">Hugo 知识库搭建指南</a></h3>
+    <p>Hugo 知识库搭建指南 Hugo 是一个快速、现代的静态网站生成器，非常适合搭建个人知识库。
+为什么选择 Hugo 速度快 - 生成网站的速度极快 易于部署 - 可以轻松部署到 GitHub Pages 等平台 丰富的主题 - 有大量的主题可供选择 Markdown 支持 - 完美支持 Markdown 格式 安装 Hugo Windows choco install hugo -confirm macOS brew install hugo Linux sudo apt-get install hugo 创建新站点 hugo new site my-knowledge-base cd my-knowledge-base 添加主题 git init git submodule add https://github.com/matcornic/hugo-theme-learn.git themes/hugo-theme-learn 创建内容 cp xxx.md content/posts/ 更新内容 hugo --cleanDestinationDir 启动服务 hugo server -D # hugo server --disableFastRender 部署到 GitHub Pages 在 GitHub 上创建新仓库 构建网站： hugo 将 public 目录推送到 GitHub Pages 最佳实践 使用清晰的目录结构 为每篇文章添加合适的标签和分类 定期备份内容 使用版本控制管理内容 </p>
+  
+</div>
+
+    </main>
+    <footer class="footer">
+  <p>&copy; 2025 我的个人知识库. 保留所有权利。</p>
+  <p>使用 <a href="https://gohugo.io/" target="_blank">Hugo</a> 和 <a href="https://github.com/matcornic/hugo-theme-learn" target="_blank">Learn</a> 主题构建。</p>
+</footer>
+
+  </div>
+</body>
+</html>
