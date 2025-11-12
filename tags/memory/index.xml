@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Memory on 我的个人知识库</title>
-    <link>http://localhost:45862/tags/memory/</link>
+    <link>http://localhost:46520/tags/memory/</link>
     <description>Recent content in Memory on 我的个人知识库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 12 Nov 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:45862/tags/memory/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:46520/tags/memory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>riscv mmu</title>
-      <link>http://localhost:45862/2025/11/mmu/</link>
+      <link>http://localhost:46520/2025/11/mmu/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/mmu/</guid>
+      <guid>http://localhost:46520/2025/11/mmu/</guid>
       <description>MMU 硬件原理（priv-isa ） 页表目录：satp , 结构如下（大端） PPN: 一级页表的 physical page number ASID：页表的标识号（软件配置），用于和 TLB 中的条目匹配，这样就可以达到 切换 进程时，不刷新 tlb 的效果（每个进程对应一个 ASID) asid 的位数和 hw 有关，不同硬件 asid bit 不一样，可以通过写 0xFFFF 到 ASID，然后回读，确认 bit 数&#xA;MODE：标识是几级页表，虚拟地址长度 SV32（没有一些特殊属性（大页，页表类型）） SV57 如果实现了 svadu 扩展，硬件会自动更新 pte.D/A bit，就不需要在 page-fault 中处理 D/A bit&#xA;没有实现 svadu，需要实现 svade 扩展，在以下情况触发异常，然后再物理页中更新 D/A bit：&#xA;访问物理页并且 A==0； 写物理页并且 D==0； D bit 会在回写完毕后，置 0；A bit 会在页表回收机制中，置 0；&#xA;大页支持 page_size == PMD_SIZE / PUD_SIZE N 位好像只是告诉 MMU 这个 pte 是连续的pte，如果 page_size == PMD_SIZE 直接配置 pmd_t 为 pte 就可以了，对应的 pte.</description>
     </item>
   </channel>

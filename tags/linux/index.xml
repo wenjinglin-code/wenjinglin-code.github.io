@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 我的个人知识库</title>
-    <link>http://localhost:45862/tags/linux/</link>
+    <link>http://localhost:46520/tags/linux/</link>
     <description>Recent content in Linux on 我的个人知识库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 12 Nov 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:45862/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:46520/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>riscv debug mode</title>
-      <link>http://localhost:45862/2025/11/debug-mode/</link>
+      <link>http://localhost:46520/2025/11/debug-mode/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/debug-mode/</guid>
+      <guid>http://localhost:46520/2025/11/debug-mode/</guid>
       <description>概况 debug mode 是特殊的处理器模式，仅在 hart 由于外部调试而暂停时使用。&#xA;调试器想让 hart 进入 debug mode，步骤如下：&#xA;配置 dmcontrol.dmactive = 0，复位 debug mouble(DM) 配置 dmcontrol.dmactive = 1，使能 debug mouble(DM) 配置好要选择的 hart (dmcontrol.hasel) 配置 dmcontrol.haltreq = 1，让选择的 harts 进入 debug mode debug mode registers 只能在 debug mode 模式下访问&#xA;dcsr(Debug Control and Status) Field Description Access Reset debuger debug spec 版本 R Preset ebreakx 0：ebreak 指令触发 breakpoint 异常； 1：ebreak 指令进入 debug mode； | WARL | 0 | | cause | 进入 debug mode 的原因</description>
     </item>
     <item>
       <title>riscv mmu</title>
-      <link>http://localhost:45862/2025/11/mmu/</link>
+      <link>http://localhost:46520/2025/11/mmu/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/mmu/</guid>
+      <guid>http://localhost:46520/2025/11/mmu/</guid>
       <description>MMU 硬件原理（priv-isa ） 页表目录：satp , 结构如下（大端） PPN: 一级页表的 physical page number ASID：页表的标识号（软件配置），用于和 TLB 中的条目匹配，这样就可以达到 切换 进程时，不刷新 tlb 的效果（每个进程对应一个 ASID) asid 的位数和 hw 有关，不同硬件 asid bit 不一样，可以通过写 0xFFFF 到 ASID，然后回读，确认 bit 数&#xA;MODE：标识是几级页表，虚拟地址长度 SV32（没有一些特殊属性（大页，页表类型）） SV57 如果实现了 svadu 扩展，硬件会自动更新 pte.D/A bit，就不需要在 page-fault 中处理 D/A bit&#xA;没有实现 svadu，需要实现 svade 扩展，在以下情况触发异常，然后再物理页中更新 D/A bit：&#xA;访问物理页并且 A==0； 写物理页并且 D==0； D bit 会在回写完毕后，置 0；A bit 会在页表回收机制中，置 0；&#xA;大页支持 page_size == PMD_SIZE / PUD_SIZE N 位好像只是告诉 MMU 这个 pte 是连续的pte，如果 page_size == PMD_SIZE 直接配置 pmd_t 为 pte 就可以了，对应的 pte.</description>
     </item>
     <item>
       <title>riscv 启动</title>
-      <link>http://localhost:45862/2025/11/riscv-%E5%90%AF%E5%8A%A8/</link>
+      <link>http://localhost:46520/2025/11/riscv-%E5%90%AF%E5%8A%A8/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/riscv-%E5%90%AF%E5%8A%A8/</guid>
+      <guid>http://localhost:46520/2025/11/riscv-%E5%90%AF%E5%8A%A8/</guid>
       <description>riscv linux 参考启动流程_rsic-v的bootload-CSDN博客&#xA;Opensbi 简介 OpenSBI-Firmware固件 - 知乎 (zhihu.com)&#xA;// opensbi 能编译出三种固件(FW_PAYLOAD FW_JUMP FW_DYNAMIC), 用于不同的启动方式 // fw_dynamic: 固件运行时通过a2寄存器从上一个启动阶段获取有关下一个启动阶段的信息fw_dynamic_info，包含：引导加载程序或操作系统的内核。 { unsigned long magic; unsigned long version; unsigned long next_addr; unsigned long next_mode; unsigned long options; unsigned long boot_hart;/*避免由于重定位机制重写前一启动阶段造成的启动时崩溃，可指定HART 作为首选启动HART*/ }__packed; // fw_jump: 固件假设下一引导阶段入口地址固定，不直接包含下一阶段的二进制代码 // make PLATFORM=generic FW_JUMP_ADDR=0X80200000 // fw_payload: 固件包含OpenSBI固件执行后启动阶段的二进制代码。不同于fw_jump固件的指定地址跳转，fw_payload固件将bootloader或os镜像直接打包进来。 // make PLATFORM=generic FW_PAYLOAD_PATH=uboot.bin // make PLATFORM=generic FW_PAYLOAD_PATH=Image 代码分析 sbi_hart_init |- hart_detect_features // 解析 hart 支持的功能 |- val = hart_pmp_get_allowed_addr(); // 获取支持的 pmp 地址位数，和地址的颗粒大小 | |- csr_write_allowed(CSR_PMPADDR0, (ulong)&amp;amp;trap, PMP_ADDR_MASK); // 往 csr_pmpaddr0 写入 ((_ULL(0x1) &amp;lt;&amp;lt; 54) - 1), 53 位 1 |&#x9;|&#x9;// isa spec 规定 addr_field 只有&#x9;53 bit |&#x9;|- val = csr_read_allowed(CSR_PMPADDR0, (ulong)&amp;amp;trap); // 回读 csr_pmpaddr0 , 判断 addr_field 哪写位可以写入 |&#x9;|&#x9;// 从而判断 pmp 地址位数，和地址的颗粒大小 |- hfeatures-&amp;gt;pmp_gran = 1 &amp;lt;&amp;lt; (__ffs(val) + 2); // __ffs(val) 表示获取 val 中首个为 1 的位号 |- hfeatures-&amp;gt;pmp_addr_bits = __fls(val) + 1; // __fls(val) 表示获取 val 中最后为 1 的位号&#x9;sbi_boot_print_hart |- bi_printf(&amp;#34;Boot HART PMP Granularity : %lu\n&amp;#34;, sbi_hart_pmp_granularity(scratch)); // 打印 pmp 地址颗粒 | |- return hfeatures-&amp;gt;pmp_gran; |- sbi_printf(&amp;#34;Boot HART PMP Address Bits: %d\n&amp;#34;, sbi_hart_pmp_addrbits(scratch)); // 打印 pmp 地址位数 |- return hfeatures-&amp;gt;pmp_addr_bits; // qemu 中 pmpaddr 操作 // qemu/target/riscv/pmp.</description>
     </item>
     <item>
       <title>riscv 虚拟化</title>
-      <link>http://localhost:45862/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
+      <link>http://localhost:46520/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
+      <guid>http://localhost:46520/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
       <description>硬件原理（priv-isa 13） 特权模式 HS-mode 和 S-mode 是一个东西，只是支持 hypervisor 改了名字，HS-mode 进入 VS-mode 通过 hstatus.spv = 1&#xA;CSR 访问 csr_hxxx 是 hs-mode 用来控制 vx-mode 的；csr_vsxx 是 vx-mode 访问 csr_sxxx 时，实际访问的寄存器&#xA;地址翻译 vstap 在 vx-mode 模式等价于 stap；hgatp 的 entry 是比 stap 的 entry 多两位的&#xA;中断类型 G-stage 翻译失败会触发 guest-page fault&#xA;kernel 内存结构 vcpu 运行流程 qemu 启动虚拟机简易代码 // tiny_qemu.c #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;sys/stat.h&amp;gt; #include &amp;lt;fcntl.h&amp;gt; #include &amp;lt;sys/ioctl.h&amp;gt; #include &amp;lt;linux/kvm.</description>
     </item>
     <item>
       <title>riscv 异常,中断</title>
-      <link>http://localhost:45862/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</link>
+      <link>http://localhost:46520/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</guid>
+      <guid>http://localhost:46520/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</guid>
       <description>中断硬件原理 如果没有使用 medeleg / medeleg 对中断委托的话，触发中断，会陷入到 m-mode 处理；如果配置了，就在 s-mode 处理；&#xA;中断类型 在不同模式下，触发相同的中断，中断编号不一样，如：&#xA;在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;&#xA;在 u-mode 模式中执行 ecall，就触发 Environment cal from U-mode ，syscall 就是基于这个；&#xA;m-mode&#xA;s-mode 只包含 s，u 的中断&#xA;异常的优先级 中断模式 riscv 有两种中断模式，通过 MODE 配置，不同的中断模式，中断向量不一样，如下：&#xA;软件触发中断 ecall (syscall 基于这个) 在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;</description>
     </item>
   </channel>

@@ -2,78 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:45862/about/</loc>
+    <loc>http://localhost:46520/about/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/bringup/</loc>
+    <loc>http://localhost:46520/tags/bringup/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/c3000/</loc>
+    <loc>http://localhost:46520/tags/c3000/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/categories/</loc>
+    <loc>http://localhost:46520/categories/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/debug/</loc>
+    <loc>http://localhost:46520/tags/debug/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/interrupt/</loc>
+    <loc>http://localhost:46520/tags/interrupt/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/linux/</loc>
+    <loc>http://localhost:46520/tags/linux/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/memory/</loc>
+    <loc>http://localhost:46520/tags/memory/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/posts/</loc>
+    <loc>http://localhost:46520/posts/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/riscv/</loc>
+    <loc>http://localhost:46520/tags/riscv/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/2025/11/debug-mode/</loc>
+    <loc>http://localhost:46520/2025/11/debug-mode/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/2025/11/mmu/</loc>
+    <loc>http://localhost:46520/2025/11/mmu/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/2025/11/riscv-%E5%90%AF%E5%8A%A8/</loc>
+    <loc>http://localhost:46520/2025/11/riscv-%E5%90%AF%E5%8A%A8/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
+    <loc>http://localhost:46520/2025/11/%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</loc>
+    <loc>http://localhost:46520/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/categories/riscv_linux/</loc>
+    <loc>http://localhost:46520/categories/riscv_linux/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/</loc>
+    <loc>http://localhost:46520/tags/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/virtual/</loc>
+    <loc>http://localhost:46520/tags/virtual/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/</loc>
+    <loc>http://localhost:46520/</loc>
     <lastmod>2025-11-12T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/hugo/</loc>
+    <loc>http://localhost:46520/tags/hugo/</loc>
     <lastmod>2023-11-11T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/2023/11/hugo-setup-guide/</loc>
+    <loc>http://localhost:46520/2023/11/hugo-setup-guide/</loc>
     <lastmod>2023-11-11T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://localhost:46520/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-11-11T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</loc>
+    <loc>http://localhost:46520/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</loc>
     <lastmod>2023-11-11T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/</loc>
+    <loc>http://localhost:46520/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/</loc>
     <lastmod>2023-11-11T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:45862/search/</loc>
+    <loc>http://localhost:46520/search/</loc>
   </url>
 </urlset>

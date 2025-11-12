@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Interrupt on 我的个人知识库</title>
-    <link>http://localhost:45862/tags/interrupt/</link>
+    <link>http://localhost:46520/tags/interrupt/</link>
     <description>Recent content in Interrupt on 我的个人知识库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 12 Nov 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:45862/tags/interrupt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:46520/tags/interrupt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>riscv 异常,中断</title>
-      <link>http://localhost:45862/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</link>
+      <link>http://localhost:46520/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</link>
       <pubDate>Wed, 12 Nov 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:45862/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</guid>
+      <guid>http://localhost:46520/2025/11/%E5%BC%82%E5%B8%B8%E4%B8%AD%E6%96%AD/</guid>
       <description>中断硬件原理 如果没有使用 medeleg / medeleg 对中断委托的话，触发中断，会陷入到 m-mode 处理；如果配置了，就在 s-mode 处理；&#xA;中断类型 在不同模式下，触发相同的中断，中断编号不一样，如：&#xA;在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;&#xA;在 u-mode 模式中执行 ecall，就触发 Environment cal from U-mode ，syscall 就是基于这个；&#xA;m-mode&#xA;s-mode 只包含 s，u 的中断&#xA;异常的优先级 中断模式 riscv 有两种中断模式，通过 MODE 配置，不同的中断模式，中断向量不一样，如下：&#xA;软件触发中断 ecall (syscall 基于这个) 在 m-mode 模式中执行 ecall，会触发 Environment cal from M-mode ;&#xA;在 s-mode 模式中执行 ecall，就触发 Environment cal from S-mode ;</description>
     </item>
   </channel>
